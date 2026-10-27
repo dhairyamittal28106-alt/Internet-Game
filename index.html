@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f7f7f7">
+  <title>Offline Dash</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-wrap">
+    <div class="toolbar" aria-label="Game options">
+      <div class="picker-wrap"><button class="tool-button runner-button" id="nameButton" aria-haspopup="listbox" aria-expanded="false">DINO <span>▾</span></button><div class="picker hidden" id="picker"><div class="picker-title">PICK YOUR RUNNER</div><div class="picker-list" id="pickerList"></div></div></div>
+      <button class="tool-button" id="muteButton" aria-label="Toggle sound">mute</button>
+    </div>
+    <div class="score" id="score">00000</div>
+    <div class="track-area" id="trackArea"><canvas id="gameCanvas" aria-label="Endless runner. Press space or tap to jump."></canvas><div class="runner-figure" id="runnerFigure" aria-hidden="true"></div><div class="message" id="message">PRESS SPACE TO START</div></div>
+    <div class="help"><span><kbd>SPACE</kbd> / <kbd>↑</kbd> JUMP &nbsp; <kbd>↓</kbd> DUCK</span><span>OR TAP TO JUMP</span></div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
