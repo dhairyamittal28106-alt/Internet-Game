@@ -162,5 +162,11 @@
   function end(){state='over';player.duck=false;figure.classList.remove('running');positionFigure();$('message').textContent='GAME OVER — PRESS SPACE TO RESTART';$('message').classList.add('show');beep(180)}
   window.addEventListener('keydown',e=>{if(['Space','ArrowUp'].includes(e.code)){e.preventDefault();jump()}else if(e.code==='ArrowDown'&&state==='running'){e.preventDefault();player.duck=true;positionFigure()}});
   window.addEventListener('keyup',e=>{if(e.code==='ArrowDown'){player.duck=false;positionFigure()}});
+  const jumpButton=$('jumpButton'),duckButton=$('duckButton');
+  jumpButton.addEventListener('pointerdown',e=>{e.preventDefault();jump()});
+  duckButton.addEventListener('pointerdown',e=>{e.preventDefault();if(state!=='running')begin();player.duck=true;positionFigure();try{duckButton.setPointerCapture(e.pointerId)}catch{}});
+  const releaseDuck=()=>{player.duck=false;positionFigure()};
+  duckButton.addEventListener('pointerup',releaseDuck);duckButton.addEventListener('pointercancel',releaseDuck);duckButton.addEventListener('lostpointercapture',releaseDuck);
+  window.addEventListener('blur',()=>{if(player.duck)releaseDuck()});
   track.addEventListener('pointerdown',()=>jump());window.addEventListener('resize',size);size();$('message').textContent='PRESS SPACE TO START';$('message').classList.add('show');
 })();
