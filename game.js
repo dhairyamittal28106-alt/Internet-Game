@@ -137,7 +137,6 @@
   function cactus(o){ctx.fillStyle=color();const x=Math.round(o.x),y=base(),w=o.w,h=o.h;ctx.fillRect(x+Math.floor(w*.35),y-h,Math.ceil(w*.32),h);ctx.fillRect(x,y-h+Math.floor(h*.4),Math.ceil(w*.4),4);ctx.fillRect(x,y-h+Math.floor(h*.4),4,Math.floor(h*.34));ctx.fillRect(x+Math.floor(w*.65),y-h+Math.floor(h*.58),Math.ceil(w*.35),4);ctx.fillRect(x+w-4,y-h+Math.floor(h*.58),4,Math.floor(h*.26))}
   function bird(o){
     const x=Math.round(o.x),top=Math.round(base()-o.altitude-o.h),wingUp=Math.floor(frame/8)%2===0;ctx.fillStyle=color();
-    // Chrome-style pterodactyl silhouette, flapping between two wing poses.
     ctx.beginPath();ctx.ellipse(x+20,top+12,13,6,0,0,Math.PI*2);ctx.fill();
     ctx.beginPath();ctx.arc(x+31,top+7,5,0,Math.PI*2);ctx.fill();
     ctx.beginPath();ctx.moveTo(x+34,top+6);ctx.lineTo(x+42,top+9);ctx.lineTo(x+34,top+11);ctx.closePath();ctx.fill();
